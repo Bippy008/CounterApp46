@@ -25,6 +25,8 @@ class Presenter {
         }
     }
     fun changeColor () {
-        view.changeColor(R.color.green)
+        if (model.getCount() == 15) {
+            view.changeColor(R.color.green)
+        }
     }
 }
