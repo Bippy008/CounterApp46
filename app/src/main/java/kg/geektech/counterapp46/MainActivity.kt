@@ -24,15 +24,22 @@ class MainActivity : AppCompatActivity(),  CounterView{
     private fun initClicker() {
         binding.incrementBtn.setOnClickListener {
             presenter.incrementCount()
+            presenter.makeToastOnTen()
+            presenter.changeColor()
         }
     }
 
     override fun updateCount(count: Int) {
         binding.coutnerTv.text = count.toString()
-        if (count == 10) {
-            Toast.makeText(this, "Поздравляем", Toast.LENGTH_SHORT).show()
-        } else if (count == 15) {
-            binding.coutnerTv.setTextColor(getColor(R.color.green))
-        }
     }
+
+    override fun makeToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun changeColor(id: Int) {
+        binding.coutnerTv.setTextColor(getColor(id))
+    }
+
+
 }
